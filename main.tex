@@ -1,5 +1,12 @@
 \documentclass[letterpaper,11pt]{article}
-\usepackage{preamblecv}
+\usepackage{cv}
+
+\newboolean{longversion}
+% Uncomment the following line to get the long version
+ \setboolean{longversion}{true}
+\ifthenelse{\boolean{longversion}}
+{\includeversion{longversion}\excludeversion{shortversion}}
+{\excludeversion{longversion}\includeversion{shortversion}}
 
 \begin{document}
 \subfile{heading.tex}
@@ -22,7 +29,9 @@
 \subfile{_languages.tex}
 \end{minipage}
 
+\begin{longversion}
 \pagebreak
+\end{longversion}
 
 \section{Teaching}
 \subfile{_teaching.tex}
