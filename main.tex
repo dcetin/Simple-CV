@@ -1,48 +1,26 @@
+
 \documentclass[letterpaper,11pt]{article}
 \usepackage{cv}
 
-\newboolean{longversion}
-% Uncomment the following line to get the long version
- \setboolean{longversion}{true}
-\ifthenelse{\boolean{longversion}}
-{\includeversion{longversion}\excludeversion{shortversion}}
-{\excludeversion{longversion}\includeversion{shortversion}}
-
 \begin{document}
-\subfile{heading.tex}
 
-\section{Education}
-\subfile{_education.tex}
+% Heading
+\import{sections/}{heading.tex}
 
-\section{Experience}
-\subfile{_experience.tex}
+% Page One
+\import{sections/}{education.tex}
+\import{sections/}{experience.tex}
+\import{sections/}{publications.tex}
+\import{sections/}{teaching.tex}
 
-\section{Publications}
-\subfile{_publications.tex}
-
-\begin{minipage}[t]{0.495\textwidth}
-\section{Skills}
-\subfile{_skills.tex}
-\end{minipage}
-\begin{minipage}[t]{0.495\textwidth}
-\section{Languages}
-\subfile{_languages.tex}
-\end{minipage}
-
-\begin{longversion}
 \pagebreak
-\end{longversion}
 
-\section{Teaching}
-\subfile{_teaching.tex}
-
-\section{Projects}
-\subfile{_projects.tex}
-
-\section{Volunteering}
-\subfile{_volunteering.tex}
-
-\section{Scholarships and Awards}
-\subfile{_awards.tex}
+% Page Two
+\import{sections/}{projects.tex}
+\sidebyside
+    {\import{sections/}{skills.tex}}
+    {\import{sections/}{languages.tex}}
+\import{sections/}{awards.tex}
+\import{sections/}{volunteering.tex}
 
 \end{document}

@@ -9,7 +9,7 @@
 \usepackage{verbatim}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
-\usepackage[utf8x]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage{subfiles}
 %\usepackage{comment}
 \usepackage{xifthen}
@@ -19,51 +19,88 @@ footskip=1cm,includeheadfoot]{geometry}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{multicol}
 
-% Style
+% Styling
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
-\fancyfoot[R]{Page \thepage \hspace{1pt} of \pageref{LastPage}}
 \urlstyle{same}
 \raggedbottom
 \raggedright
 \setlength{\tabcolsep}{0in}
 
-% Shorthand
-\newcommand{\margin}{\vspace{-6pt}}
+% Quotes
+\usepackage [english]{babel}
+\usepackage [autostyle, english = american]{csquotes}
+\MakeOuterQuote{"}
+
+% Hyperlinks
+% \newcommand{\link}[2]{\href{#1}{\underline{\smash{#2}}}}
+\newcommand{\link}[2]{\href{#1}{#2}}
+
+% Colors
+\definecolor{light-black}{gray}{0.10}
+\definecolor{dark-gray}{gray}{0.35}
+\newcommand{\gray}[1]{\textcolor{dark-gray}{#1}}
+\makeatletter
+\newcommand{\globalcolor}[1]{\color{#1}\global\let\default@color\current@color}
+\makeatother
+\AtBeginDocument{\globalcolor{light-black}}
+
+% Inline heading
+\newcommand{\headinginline}[2]{
+    \begin{minipage}[t]{0.60\textwidth}
+    \fontfamily{put} \selectfont
+    \vspace*{\fill}
+    \Huge #1
+    \end{minipage}
+    \begin{minipage}[t]{0.35\textwidth}
+    \begin{flushright}
+    #2
+    \end{flushright}
+    \end{minipage}
+}
+
+% Two-columns
+\newcommand{\sidebyside}[2]{
+    \begin{multicols}{2}
+    #1 \columnbreak
+    #2 \end{multicols}
+}
 
 % Section titles
 \titleformat{\section}{
-  \vspace{4pt}\scshape\raggedright\large
-}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+    \scshape\raggedright\Large}{}{0em}{}[\color{black}\titlerule
+    \vspace{-\smallskipamount}]
 
-% Outer list
-\newcommand{\olb}{\begin{itemize}[leftmargin=*]}
-\newcommand{\ole}{\end{itemize}}
-\newcommand{\oli}[1]{\item\small{#1}\margin}
-\newcommand{\olidash}[1]{\item[--]\small{#1}\margin}
-\newcommand{\olisub}[1]{\item[]\scriptsize{\textit{#1}}\margin}
+% Footer
+\fancyfoot[R]{Page \thepage \hspace{1pt} of \pageref{LastPage}}
 
-\newcommand{\olismall}[4]{
-\item
-\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-\textbf{#1} & #2 \\
-\textit{\small#3} & \textit{\small #4} \\
-\end{tabular*}\margin}
+% Lists
+\newcommand{\outerlist}[1]{
+    \begin{itemize}[leftmargin=*] #1 \end{itemize}}
+\newcommand{\denseouterlist}[1]{
+    \begin{itemize}[leftmargin=*,itemsep=0pt] #1 \end{itemize}}
+\newcommand{\innerlist}[1]{
+    \begin{itemize}[topsep=0pt] #1 \end{itemize}}
+\newcommand{\orderedouterlist}[1]{
+    \begin{enumerate}[leftmargin=*] #1 \end{enumerate}}
 
-\newcommand{\olibig}[5]{
-\item
-\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-\textbf{#1} & #2 \\
-\textit{\small#3} & \textit{\small #4} \\
-\textit{\small#5} & \\
-\end{tabular*}\margin}
+% List items
+\newcommand{\entry}[1]{\item\small{#1}}
+\newcommand{\entryextra}[1]{\gray{\entry{#1}}}
+\newcommand{\entrylabeled}[2][]{\item[#1]\small{#2}}
 
-% Inner list
-\newcommand{\ilb}{\begin{itemize}}
-\newcommand{\ile}{\end{itemize}\margin}
-\newcommand{\ili}[1]{\item\small{#1}}
-\newcommand{\iliarrow}[1]{\item[\footnotesize{$\blacktriangleright$}]\small{#1}}
-\newcommand{\ilibullet}[1]{\item[\bullet]\small{#1}}
+\newcommand{\entrymid}[4][]{
+    \item[#1] \small{#2} \hfill \small{#3}
+    \vspace{-\smallskipamount} \item[]\small{\textit{#4}}}
+
+\newcommand{\entrybig}[5][]{\item[#1]
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+    #2 & #3 \\ {\small#4} & {\small #5} \\ \end{tabular*}}
+
+% Fill year
+\newcommand{\fillyear}[1]{\phantom{#1}}
