@@ -1,11 +1,20 @@
 
 \documentclass[letterpaper,11pt]{article}
-\usepackage{cv}
 
+% e.g. black, RedViolet, ForestGreen, MidnightBlue
+% for more, see https://en.wikibooks.org/wiki/LaTeX/Colors
+\def\theme{MidnightBlue}
+
+\usepackage{cv}
 \begin{document}
 
 % Heading
-\import{sections/}{heading.tex}
+\headinginline{Doruk Çetin}{
+    Website: \website{dcetin.me} \\ 
+    Email: \email{dcetin@ethz.ch} \\
+    % LinkedIn: \linkedin{doruk-cetin} \\
+    GitHub: \github{dcetin}
+}
 
 % Page One
 \import{sections/}{education.tex}

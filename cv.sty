@@ -19,8 +19,8 @@ footskip=1cm,includeheadfoot]{geometry}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \usepackage{amssymb}
-\usepackage{xcolor}
 \usepackage{multicol}
+\usepackage[usenames,dvipsnames]{xcolor}
 
 % Styling
 \pagestyle{fancy}
@@ -41,21 +41,29 @@ footskip=1cm,includeheadfoot]{geometry}
 % \newcommand{\link}[2]{\href{#1}{\underline{\smash{#2}}}}
 \newcommand{\link}[2]{\href{#1}{#2}}
 
-% Colors
-\definecolor{light-black}{gray}{0.10}
-\definecolor{dark-gray}{gray}{0.35}
-\newcommand{\gray}[1]{\textcolor{dark-gray}{#1}}
+% Define colors
+\definecolor{color-text}{gray}{0.10}    % light black
+\definecolor{color-detail}{gray}{0.40}  % dark gray
+\colorlet{color-title}{\theme}           % black
+
+% Set text color
 \makeatletter
 \newcommand{\globalcolor}[1]{\color{#1}\global\let\default@color\current@color}
 \makeatother
-\AtBeginDocument{\globalcolor{light-black}}
+\AtBeginDocument{\globalcolor{color-text}}
+
+% Shorthand
+\newcommand{\github}[1]{\href{https://github.com/#1/}{github.com/#1}}
+\newcommand{\email}[1]{\href{mailto:#1}{#1}}
+\newcommand{\website}[1]{\href{https://#1/}{#1}}
+\newcommand{\linkedin}[1]{\href{https://www.linkedin.com/in/#1/}{#1}}
 
 % Inline heading
 \newcommand{\headinginline}[2]{
     \begin{minipage}[t]{0.60\textwidth}
     \fontfamily{put} \selectfont
     \vspace*{\fill}
-    \Huge #1
+    \Huge \textcolor{color-title}{#1}
     \end{minipage}
     \begin{minipage}[t]{0.35\textwidth}
     \begin{flushright}
@@ -73,7 +81,7 @@ footskip=1cm,includeheadfoot]{geometry}
 
 % Section titles
 \titleformat{\section}{
-    \scshape\raggedright\Large}{}{0em}{}[\color{black}\titlerule
+    \scshape\raggedright\Large\color{color-title}}{}{0em}{}[\color{color-title}\titlerule
     \vspace{-\smallskipamount}]
 
 % Footer
@@ -91,7 +99,7 @@ footskip=1cm,includeheadfoot]{geometry}
 
 % List items
 \newcommand{\entry}[1]{\item\small{#1}}
-\newcommand{\entryextra}[1]{\gray{\entry{#1}}}
+\newcommand{\entryextra}[1]{\textcolor{color-detail}{\entry{#1}}}
 \newcommand{\entrylabeled}[2][]{\item[#1]\small{#2}}
 
 \newcommand{\entrymid}[4][]{
