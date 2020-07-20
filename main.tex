@@ -5,7 +5,7 @@
 % for more, see https://en.wikibooks.org/wiki/LaTeX/Colors
 \def\theme{MidnightBlue}
 
-\usepackage{cv}
+\usepackage{simplecv}
 \begin{document}
 
 % Heading
@@ -25,10 +25,10 @@
 \pagebreak
 
 % Page Two
-\import{sections/}{projects.tex}
 \sidebyside
     {\import{sections/}{skills.tex}}
     {\import{sections/}{languages.tex}}
+\import{sections/}{projects.tex}
 \import{sections/}{awards.tex}
 \import{sections/}{volunteering.tex}
 

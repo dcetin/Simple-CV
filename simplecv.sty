@@ -1,4 +1,4 @@
-\ProvidesPackage{cv}
+\ProvidesPackage{simplecv}
 
 % Packages
 \usepackage{latexsym}
@@ -9,7 +9,7 @@
 \usepackage{verbatim}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
-\usepackage[utf8]{inputenc}
+% \usepackage[utf8]{inputenc}
 \usepackage{subfiles}
 %\usepackage{comment}
 \usepackage{xifthen}
@@ -22,6 +22,19 @@ footskip=1cm,includeheadfoot]{geometry}
 \usepackage{multicol}
 \usepackage[usenames,dvipsnames]{xcolor}
 
+% Quotes
+\usepackage [russian, english]{babel}
+\usepackage [autostyle, english = american]{csquotes}
+\MakeOuterQuote{"}
+
+% % Chinese
+% \usepackage{xeCJK}
+% \setCJKmainfont{BabelStone Han}
+
+% % Cyrillic/Russian
+% \usepackage{hyphenat}
+% \babelfont{rm}{Droid Sans}
+
 % Styling
 \pagestyle{fancy}
 \fancyhf{}
@@ -31,11 +44,6 @@ footskip=1cm,includeheadfoot]{geometry}
 \raggedbottom
 \raggedright
 \setlength{\tabcolsep}{0in}
-
-% Quotes
-\usepackage [english]{babel}
-\usepackage [autostyle, english = american]{csquotes}
-\MakeOuterQuote{"}
 
 % Hyperlinks
 % \newcommand{\link}[2]{\href{#1}{\underline{\smash{#2}}}}
