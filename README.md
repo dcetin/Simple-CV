@@ -1,7 +1,7 @@
 
 # Simple-CV
 
-A minimalistic, multi-page CV template with BibTex support. My motivation was some [general guidelines](http://dcetin.me/en/blog/how-to-write-a-good-cv) I had in mind, though the actual LaTeX template was mainly inspired by works of [Sourabh Bajaj](https://github.com/sb2nov/resume) and [Seojin Bang](https://github.com/SeojinBang/TidyCV).
+A minimalistic, multi-page CV template with BibLaTeX support. My motivation was some [general guidelines](http://dcetin.me/en/blog/how-to-write-a-good-cv) I had in mind, though the actual LaTeX template was mainly inspired by works of [Sourabh Bajaj](https://github.com/sb2nov/resume) and [Seojin Bang](https://github.com/SeojinBang/TidyCV).
 
 ## Usage
 
