@@ -1,31 +1,16 @@
 \ProvidesPackage{simplecv}
 
 % Packages
-\usepackage{latexsym}
-\usepackage[empty]{fullpage}
-\usepackage{titlesec}
-\usepackage{marvosym}
-\usepackage[usenames,dvipsnames]{color}
-\usepackage{verbatim}
-\usepackage{enumitem}
-\usepackage[hidelinks]{hyperref}
-% \usepackage[utf8]{inputenc}
-\usepackage{subfiles}
-%\usepackage{comment}
-\usepackage{xifthen}
-\usepackage{versions}
-\usepackage[top=1.5cm,bottom=1.5cm,left=1.5cm,right=1.5cm,
-footskip=1cm,includeheadfoot]{geometry}
-\usepackage{fancyhdr}
-\usepackage{lastpage}
-\usepackage{amssymb}
-\usepackage{multicol}
-\usepackage[usenames,dvipsnames]{xcolor}
-
-% Quotes
-\usepackage [russian, english]{babel}
-\usepackage [autostyle, english = american]{csquotes}
-\MakeOuterQuote{"}
+\usepackage[cm]{fullpage}                   % Margins
+\usepackage[hidelinks]{hyperref}            % Hyperlinks
+\usepackage{titlesec}                       % Title formatting
+\usepackage{subfiles}                       % File importing
+\usepackage{multicol}                       % Multiple columns
+\usepackage[usenames,dvipsnames]{xcolor}    % Coloring
+\usepackage{enumitem}                       % List customization
+\usepackage{lastpage}                       % Page numbering
+\usepackage{fancyhdr}                       % Footers
+\usepackage[russian,english]{babel}         % Language styles
 
 % % Chinese
 % \usepackage{xeCJK}
@@ -45,6 +30,10 @@ footskip=1cm,includeheadfoot]{geometry}
 \raggedright
 \setlength{\tabcolsep}{0in}
 
+% Quotes
+\usepackage[autostyle,english=american]{csquotes}
+\MakeOuterQuote{"}
+
 % Hyperlinks
 % \newcommand{\link}[2]{\href{#1}{\underline{\smash{#2}}}}
 \newcommand{\link}[2]{\href{#1}{#2}}
@@ -52,7 +41,7 @@ footskip=1cm,includeheadfoot]{geometry}
 % Define colors
 \definecolor{color-text}{gray}{0.10}    % light black
 \definecolor{color-detail}{gray}{0.40}  % dark gray
-\colorlet{color-title}{\theme}           % black
+\colorlet{color-title}{\theme}          % black
 
 % Set text color
 \makeatletter
@@ -120,3 +109,20 @@ footskip=1cm,includeheadfoot]{geometry}
 
 % Fill year
 \newcommand{\fillyear}[1]{\phantom{#1}}
+
+% Make author name bold: https://tex.stackexchange.com/a/327046
+\newcommand*{\boldname}[3]{%
+  \def\lastname{#1}%
+  \def\firstname{#2}%
+  \def\firstinit{#3}}
+\boldname{}{}{}
+
+\renewcommand{\mkbibnamegiven}[1]{%
+  \ifboolexpr{ ( test {\ifdefequal{\firstname}{\namepartgiven}} or test {\ifdefequal{\firstinit}{\namepartgiven}} ) and test {\ifdefequal{\lastname}{\namepartfamily}} }
+  {\mkbibbold{#1}}{#1}%
+}
+
+\renewcommand{\mkbibnamefamily}[1]{%
+  \ifboolexpr{ ( test {\ifdefequal{\firstname}{\namepartgiven}} or test {\ifdefequal{\firstinit}{\namepartgiven}} ) and test {\ifdefequal{\lastname}{\namepartfamily}} }
+  {\mkbibbold{#1}}{#1}%
+}
