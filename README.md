@@ -5,6 +5,8 @@ A minimalistic, multi-page CV template with BibLaTeX support. My motivation was 
 
 ## Usage
 
+You can either fill the [basic template on Overleaf](https://www.overleaf.com/latex/templates/simple-cv/wmsyrgqwwqnc), or edit the example CV provided here. Note that the template needs to be compiled with XeLaTeX.
+
 Theme color and bibliography style can be set at the top of the main tex file.
 Template supports Chinese and Cyrillic characters, you just need to comment in the relevant lines in the preamble.
 
