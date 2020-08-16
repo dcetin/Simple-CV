@@ -11,6 +11,8 @@
 \usepackage{lastpage}                       % Page numbering
 \usepackage{fancyhdr}                       % Footers
 \usepackage[russian,english]{babel}         % Language styles
+\usepackage{graphicx}                       % Importing graphics
+\usepackage[export]{adjustbox}              % Aligning margins
 
 % % Chinese
 % \usepackage{xeCJK}
@@ -55,16 +57,35 @@
 \newcommand{\website}[1]{\href{https://#1/}{#1}}
 \newcommand{\linkedin}[1]{\href{https://www.linkedin.com/in/#1/}{#1}}
 
+% Dummy environment
+\newenvironment*{dummyenv}{}{}
+
 % Inline heading
 \newcommand{\headinginline}[2]{
     \begin{minipage}[t]{0.60\textwidth}
-    \fontfamily{put} \selectfont
     \vspace*{\fill}
     \Huge \textcolor{color-title}{#1}
     \end{minipage}
     \begin{minipage}[t]{0.35\textwidth}
     \begin{flushright}
     #2
+    \end{flushright}
+    \end{minipage}
+}
+
+% Photo heading
+\newcommand{\headingphoto}[3]{
+    \begin{minipage}[t]{0.60\textwidth}
+    \begin{dummyenv}
+    \vspace*{\fill}
+    \Huge \textcolor{color-title}{#1}
+    \end{dummyenv}
+    \vspace{5mm}\\
+    #2
+    \end{minipage}
+    \begin{minipage}[t]{0.35\textwidth}
+    \begin{flushright}
+    \includegraphics[width=.5\linewidth,keepaspectratio,valign=t]{#3}
     \end{flushright}
     \end{minipage}
 }

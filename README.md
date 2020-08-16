@@ -5,10 +5,13 @@ A minimalistic, multi-page CV template with BibLaTeX support. My motivation was 
 
 ## Usage
 
-You can either fill the [basic template on Overleaf](https://www.overleaf.com/latex/templates/simple-cv/wmsyrgqwwqnc), or edit the example CV provided here. Note that the template needs to be compiled with XeLaTeX.
+You can either fill the [basic template on Overleaf](https://www.overleaf.com/latex/templates/simple-cv/wmsyrgqwwqnc), or edit the example CV provided here.
+Note that the template needs to be compiled with XeLaTeX or LuaLaTeX.
+Code is tested on Windows with Texmaker/Biber/MikTeX.
 
-Theme color and bibliography style can be set at the top of the main tex file.
-Template supports Chinese and Cyrillic characters, you just need to comment in the relevant lines in the preamble.
+To use the header with photo just replace the png file and uncomment the relevant lines in the main tex file.
+Theme color and bibliography style can similarly be set at the top of the main tex file.
+Template also supports Chinese and Cyrillic characters, you just need uncomment the relevant lines in the preamble.
 
 ## Preview
 
@@ -16,9 +19,9 @@ First page                 | Second page
 :-------------------------:|:-------------------------:
 ![black-1](img/black-1.png)|![black-2](img/black-2.png)
 
-Blue theme                | Green theme               | Red theme
-:------------------------:|:-------------------------:|:---------------------:
-![blue-1](img/blue-1.png) |![green-1](img/green-1.png)|![red-1](img/red-1.png)
+Header with photo                | Blue theme               | Red theme
+:-------------------------------:|:------------------------:|:---------------------:
+![blue-1](img/black_photo-1.png) |![green-1](img/blue-1.png)|![red-1](img/red-1.png)
 
 ## License
 

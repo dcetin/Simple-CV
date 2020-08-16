@@ -7,7 +7,9 @@
 
 % Choose theme, e.g. black, RedViolet, ForestGreen, MidnightBlue
 \def\theme{MidnightBlue}
-% For more, see https://en.wikibooks.org/wiki/LaTeX/Colors
+
+% More predefined colors can be found in 
+% https://en.wikibooks.org/wiki/LaTeX/Colors
 
 \usepackage{simplecv}
 
@@ -23,15 +25,22 @@
     GitHub: \github{dcetin}
 }
 
+% \headingphoto{Doruk Çetin}{
+%     Website: \website{dcetin.me} \\ 
+%     Email: \email{dcetin@ethz.ch} \\
+%     % LinkedIn: \linkedin{doruk-cetin} \\
+%     GitHub: \github{dcetin}
+% }{photo.png}
+
 % Page One
 \import{sections/}{education.tex}
 \import{sections/}{experience.tex}
 \import{sections/}{publications.tex}
-\import{sections/}{teaching.tex}
 
 \pagebreak
 
 % Page Two
+\import{sections/}{teaching.tex}
 \sidebyside
     {\import{sections/}{skills.tex}}
     {\import{sections/}{languages.tex}}
