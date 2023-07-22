@@ -115,6 +115,8 @@
     \begin{itemize}[topsep=0pt] #1 \end{itemize}}
 \newcommand{\orderedouterlist}[1]{
     \begin{enumerate}[leftmargin=*] #1 \end{enumerate}}
+\newcommand{\denseorderedouterlist}[1]{
+    \begin{enumerate}[leftmargin=*,itemsep=0pt] #1 \end{enumerate}}
 
 % List items
 \newcommand{\entry}[1]{\item\small{#1}}
@@ -128,6 +130,10 @@
 \newcommand{\entrybig}[5][]{\item[#1]
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
     #2 & #3 \\ {\small#4} & {\small #5} \\ \end{tabular*}}
+
+\newcommand{\entrybigonecol}[3][]{\item[#1]
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+    #2 & \\ {\small#3} & \\ \end{tabular*}}
 
 % Fill year
 \newcommand{\fillyear}[1]{\phantom{#1}}
