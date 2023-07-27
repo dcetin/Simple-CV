@@ -1,10 +1,11 @@
 \ProvidesPackage{simplecv}
 
 % Packages
+\usepackage{fontawesome}                    % Social media icons
 \usepackage[cm]{fullpage}                   % Margins
 \usepackage[hidelinks]{hyperref}            % Hyperlinks
 \usepackage{titlesec}                       % Title formatting
-\usepackage{subfiles}                       % File importing
+\usepackage{import}                         % File importing
 \usepackage{multicol}                       % Multiple columns
 \usepackage[usenames,dvipsnames]{xcolor}    % Coloring
 \usepackage{enumitem}                       % List customization
@@ -13,6 +14,7 @@
 \usepackage[russian,english]{babel}         % Language styles
 \usepackage{graphicx}                       % Importing graphics
 \usepackage[export]{adjustbox}              % Aligning margins
+\usepackage{moresize}                       % HUGE size
 
 % % Chinese
 % \usepackage{xeCJK}
@@ -64,9 +66,9 @@
 \newcommand{\headinginline}[2]{
     \begin{minipage}[t]{0.60\textwidth}
     \vspace*{\fill}
-    \Huge \textcolor{color-title}{#1}
+    \HUGE \textcolor{color-title}{#1}
     \end{minipage}
-    \begin{minipage}[t]{0.35\textwidth}
+    \begin{minipage}[t]{0.39\textwidth}
     \begin{flushright}
     #2
     \end{flushright}
@@ -78,12 +80,12 @@
     \begin{minipage}[t]{0.60\textwidth}
     \begin{dummyenv}
     \vspace*{\fill}
-    \Huge \textcolor{color-title}{#1}
+    \HUGE \textcolor{color-title}{#1}
     \end{dummyenv}
     \vspace{5mm}\\
     #2
     \end{minipage}
-    \begin{minipage}[t]{0.35\textwidth}
+    \begin{minipage}[t]{0.39\textwidth}
     \begin{flushright}
     \includegraphics[width=.5\linewidth,keepaspectratio,valign=t]{#3}
     \end{flushright}
@@ -114,6 +116,8 @@
     \begin{itemize}[topsep=0pt] #1 \end{itemize}}
 \newcommand{\orderedouterlist}[1]{
     \begin{enumerate}[leftmargin=*] #1 \end{enumerate}}
+\newcommand{\denseorderedouterlist}[1]{
+    \begin{enumerate}[leftmargin=*,itemsep=0pt] #1 \end{enumerate}}
 
 % List items
 \newcommand{\entry}[1]{\item\small{#1}}
@@ -127,6 +131,10 @@
 \newcommand{\entrybig}[5][]{\item[#1]
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
     #2 & #3 \\ {\small#4} & {\small #5} \\ \end{tabular*}}
+
+\newcommand{\entrybigonecol}[3][]{\item[#1]
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+    #2 & \\ {\small#3} & \\ \end{tabular*}}
 
 % Fill year
 \newcommand{\fillyear}[1]{\phantom{#1}}

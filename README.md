@@ -9,8 +9,8 @@ You can either fill the [basic template on Overleaf](https://www.overleaf.com/la
 Note that the template needs to be compiled with XeLaTeX or LuaLaTeX.
 Code is tested on Windows with Texmaker/Biber/MikTeX.
 
-To use the header with photo just replace the png file and uncomment the relevant lines in the main tex file.
-Theme color and bibliography style can similarly be set at the top of the main tex file.
+To use the alternative headers just uncomment the relevant lines in the main tex file (and replace the photo with yours, if you are using `\headingphoto`). Social media icons are from fontawesome package, see [its reference](https://mirrors.ibiblio.org/CTAN/fonts/fontawesome/doc/fontawesome.pdf) for a list of all available icons.
+Theme color and bibliography style can similarly be set at the top of the main tex file. See [Colors entry in LaTeX wikibooks](https://en.wikibooks.org/wiki/LaTeX/Colors) for more predefined colors.
 Template also supports Chinese and Cyrillic characters, you just need uncomment the relevant lines in the preamble.
 
 ## Preview
