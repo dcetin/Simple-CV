@@ -9,6 +9,19 @@ You can either fill the [basic template on Overleaf](https://www.overleaf.com/la
 Note that the template needs to be compiled with XeLaTeX or LuaLaTeX.
 Code is tested on Windows with Texmaker/Biber/MikTeX.
 
+After installing all the necessary packages, following sequence fo commands should produce the pdf:
+```bash
+xelatex main.tex
+biber main
+xelatex main.tex
+xelatex main.tex
+```
+
+Alternatively, a single command would suffice if perl is available:
+```bash
+latexmk -xelatex -bibtex-cond1 -silent main.tex
+```
+
 To use the alternative headers just uncomment the relevant lines in the main tex file (and replace the photo with yours, if you are using `\headingphoto`). Social media icons are from fontawesome package, see [its reference](https://mirrors.ibiblio.org/CTAN/fonts/fontawesome/doc/fontawesome.pdf) for a list of all available icons.
 Theme color and bibliography style can similarly be set at the top of the main tex file. See [Colors entry in LaTeX wikibooks](https://en.wikibooks.org/wiki/LaTeX/Colors) for more predefined colors.
 Template also supports Chinese and Cyrillic characters, you just need uncomment the relevant lines in the preamble.
