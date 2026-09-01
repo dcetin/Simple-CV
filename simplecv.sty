@@ -151,6 +151,11 @@
     \begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
     #2 & #3 \\ {\small#4} & {\small #5} \\ \end{tabular*}}
 
+\newcommand{\entryrole}[2]{% extra role + dates under the same \entrybig (promotions)
+    \par\nobreak\vspace{-\parskip}\nointerlineskip
+    \begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
+    {\small#1} & {\small #2} \\ \end{tabular*}}
+
 \newcommand{\entrybigonecol}[3][]{\item[#1]  % two left-only rows (projects without location/dates)
     \begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
     #2 & \\ {\small#3} & \\ \end{tabular*}}
