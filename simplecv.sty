@@ -120,6 +120,9 @@
     \scshape\raggedright\Large\color{color-title}}{}{0em}{}[\color{color-title}\titlerule
     \vspace{-\smallskipamount}]
 
+% Match other CV sections (biblatex defaults to \section* plus marks)
+\defbibheading{bibliography}[\refname]{\section{#1}}
+
 % Footer
 \fancyfoot[R]{Page \thepage \hspace{1pt} of \pageref{LastPage}}
 
