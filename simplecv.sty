@@ -15,6 +15,7 @@
 \usepackage{graphicx}                       % Importing graphics
 \usepackage[export]{adjustbox}              % Aligning margins
 \usepackage{moresize}                       % HUGE size
+\usepackage{etoolbox}                       % CSV lists, patching helpers
 
 % % Chinese
 % \usepackage{xeCJK}
@@ -61,6 +62,21 @@
 
 % Dummy environment
 \newenvironment*{dummyenv}{}{}
+
+% Simple heading: name + comma-separated contact items
+\makeatletter
+\newcommand{\headingsimple}[2]{%
+    \begin{center}
+        {\HUGE \textcolor{color-title}{#1}}\\[\medskipamount]
+        \def\simplecv@sep{}%
+        \forcsvlist{\simplecv@contact}{#2}%
+    \end{center}
+}
+\newcommand{\simplecv@contact}[1]{%
+    \simplecv@sep #1%
+    \def\simplecv@sep{\hspace{10pt}\vrule\hspace{10pt}}%
+}
+\makeatother
 
 % Inline heading
 \newcommand{\headinginline}[2]{
