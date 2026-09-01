@@ -16,6 +16,7 @@
 \usepackage[export]{adjustbox}              % Aligning margins
 \usepackage{moresize}                       % HUGE size
 \usepackage{etoolbox}                       % CSV lists, patching helpers
+\usepackage{xpatch}                         % patch to make author name bold
 
 % % Chinese
 % \usepackage{xeCJK}
@@ -157,19 +158,21 @@
 % Fill year
 \newcommand{\fillyear}[1]{\phantom{#1}}
 
-% Make author name bold: https://tex.stackexchange.com/a/327046
-\newcommand*{\boldname}[3]{%
-  \def\lastname{#1}%
-  \def\firstname{#2}%
-  \def\firstinit{#3}}
-\boldname{}{}{}
+% Make author name bold
+\makeatletter
+\newbibmacro*{name:bold}[2]{%
+  \edef\blx@tmp@name{\expandonce#1, \expandonce#2}%
+  \def\do##1{\ifdefstring{\blx@tmp@name}{##1}{\bfseries\listbreak}{}}%
+  \dolistloop{\boldnames}}
+\newcommand*{\boldnames}{}
+\makeatother
 
-\renewcommand{\mkbibnamegiven}[1]{%
-  \ifboolexpr{ ( test {\ifdefequal{\firstname}{\namepartgiven}} or test {\ifdefequal{\firstinit}{\namepartgiven}} ) and test {\ifdefequal{\lastname}{\namepartfamily}} }
-  {\mkbibbold{#1}}{#1}%
-}
+\xpretobibmacro{name:family}{\begingroup\usebibmacro{name:bold}{#1}{#2}}{}{}
+\xpretobibmacro{name:given-family}{\begingroup\usebibmacro{name:bold}{#1}{#2}}{}{}
+\xpretobibmacro{name:family-given}{\begingroup\usebibmacro{name:bold}{#1}{#2}}{}{}
+\xpretobibmacro{name:delim}{\begingroup\normalfont}{}{}
 
-\renewcommand{\mkbibnamefamily}[1]{%
-  \ifboolexpr{ ( test {\ifdefequal{\firstname}{\namepartgiven}} or test {\ifdefequal{\firstinit}{\namepartgiven}} ) and test {\ifdefequal{\lastname}{\namepartfamily}} }
-  {\mkbibbold{#1}}{#1}%
-}
+\xapptobibmacro{name:family}{\endgroup}{}{}
+\xapptobibmacro{name:given-family}{\endgroup}{}{}
+\xapptobibmacro{name:family-given}{\endgroup}{}{}
+\xapptobibmacro{name:delim}{\endgroup}{}{}

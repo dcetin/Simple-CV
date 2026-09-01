@@ -2,7 +2,7 @@
 \documentclass[letterpaper,11pt]{article}
 
 % Choose bibliography style for formatting list of publications
-\usepackage[style=ieee,url=false,doi=false,maxbibnames=99,sorting=ydnt,dashed=false]{biblatex}
+\usepackage[style=ieee,url=false,doi=false,maxbibnames=99,sorting=ydnt,dashed=false,date=year]{biblatex}
 \bibliography{papers}
 
 % Choose theme, e.g. black, RedViolet, ForestGreen, MidnightBlue, Blue
@@ -11,7 +11,11 @@
 
 \usepackage{simplecv}
 
-\boldname{Cetin}{Doruk}{D.}
+% Make author name bold
+\forcsvlist{\listadd\boldnames}{
+    {Cetin*, D\bibinitperiod},
+    {Cetin, D\bibinitperiod},
+}
 
 \begin{document}
 
