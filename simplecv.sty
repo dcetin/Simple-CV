@@ -39,14 +39,13 @@
 \usepackage[autostyle,english=american]{csquotes}
 \MakeOuterQuote{"}
 
-% Hyperlinks
-% \newcommand{\link}[2]{\href{#1}{\underline{\smash{#2}}}}
-\newcommand{\link}[2]{\href{#1}{#2}}
-
 % Define colors
 \definecolor{color-text}{gray}{0.10}    % light black
 \definecolor{color-detail}{gray}{0.40}  % dark gray
 \colorlet{color-title}{\theme}          % black
+
+% Hyperlinks
+\newcommand{\link}[2]{\href{#1}{\underline{\smash{#2}}}}
 
 % Set text color
 \makeatletter
@@ -55,7 +54,7 @@
 \AtBeginDocument{\globalcolor{color-text}}
 
 % Shorthand
-\newcommand{\github}[1]{\href{https://github.com/#1/}{github.com/#1}}
+\newcommand{\github}[1]{\href{https://github.com/#1/}{#1}}
 \newcommand{\email}[1]{\href{mailto:#1}{#1}}
 \newcommand{\website}[1]{\href{https://#1/}{#1}}
 \newcommand{\linkedin}[1]{\href{https://www.linkedin.com/in/#1/}{#1}}
@@ -139,20 +138,20 @@
     \begin{enumerate}[leftmargin=*,itemsep=0pt] #1 \end{enumerate}}
 
 % List items
-\newcommand{\entry}[1]{\item\small{#1}}
-\newcommand{\entryextra}[1]{\textcolor{color-detail}{\entry{#1}}}
-\newcommand{\entrylabeled}[2][]{\item[#1]\small{#2}}
+\newcommand{\entry}[1]{\item\small{#1}}  % bullet / body line
+\newcommand{\entryextra}[1]{\textcolor{color-detail}{\entry{#1}}}  % muted secondary bullet
+\newcommand{\entrylabeled}[2][]{\item[#1]\small{#2}}  % bullet with a custom label
 
-\newcommand{\entrymid}[4][]{
-    \item[#1] \small{#2} \hfill \small{#3}%
+\newcommand{\entrymid}[4][]{  % title + date, italic subtitle (teaching, volunteering)
+    \item[#1] \small{#2} \hfill \small{#3}
     \vspace{-\smallskipamount} \item[]\small{\textit{#4}}}
 
-\newcommand{\entrybig}[5][]{\item[#1]
+\newcommand{\entrybig}[5][]{\item[#1]  % org + location, role + dates (jobs, education)
     \begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
     #2 & #3 \\ {\small#4} & {\small #5} \\ \end{tabular*}}
 
-\newcommand{\entrybigonecol}[3][]{\item[#1]
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+\newcommand{\entrybigonecol}[3][]{\item[#1]  % two left-only rows (projects without location/dates)
+    \begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
     #2 & \\ {\small#3} & \\ \end{tabular*}}
 
 % Fill year
