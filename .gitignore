@@ -36,3 +36,6 @@ rubber.cache
 *.dvi
 *.xdv
 *-converted-to.*
+
+# Generated PDF file:
+main.pdf
