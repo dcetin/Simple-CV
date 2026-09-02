@@ -117,8 +117,13 @@
 
 % Section titles
 \titleformat{\section}{
-    \scshape\raggedright\Large\color{color-title}}{}{0em}{}[\color{color-title}\titlerule
-    \vspace{-\smallskipamount}]
+    \scshape\raggedright\Large\color{color-title}}{}{0em}{}
+    [\color{color-title}\titlerule\vspace{-\smallskipamount}]
+
+% Subsection titles
+\titleformat{\subsection}{%
+    % \scshape
+    \raggedright\large\color{color-title}}{}{0em}{}[\vspace{-\smallskipamount}]
 
 % Match other CV sections (biblatex defaults to \section* plus marks)
 \defbibheading{bibliography}[\refname]{\section{#1}}
