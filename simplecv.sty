@@ -160,6 +160,22 @@
     \begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
     #2 & \\ {\small#3} & \\ \end{tabular*}}
 
+\makeatletter
+\newcommand{\entryrule}{% theme-colored divider, centered between two \entrybig items
+    % If we're inside a list (\@listdepth>0) emit an empty \item[] so the
+    % rule lines up with other items; otherwise just emit a standalone rule.
+    \ifnum\@listdepth>0
+        \item[]% empty list item to position the rule
+        \par\nobreak\nointerlineskip\vspace*{\smallskipamount}
+        \noindent\textcolor{color-title}{\rule{\linewidth}{0.1pt}}%
+        \par\nobreak\nointerlineskip\vspace*{\smallskipamount}
+    \else
+    \par\nobreak\nointerlineskip\vspace*{\smallskipamount}
+    \noindent\textcolor{color-title}{\rule{\linewidth}{0.1pt}}%
+        \par\nobreak\nointerlineskip\vspace*{\smallskipamount}
+    \fi}
+\makeatother
+
 % Fill year
 \newcommand{\fillyear}[1]{\phantom{#1}}
 
