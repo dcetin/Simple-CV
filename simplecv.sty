@@ -66,119 +66,134 @@
 % Simple heading: name + comma-separated contact items
 \makeatletter
 \newcommand{\headingsimple}[2]{%
-    \begin{center}
-        {\HUGE \textcolor{color-title}{#1}}\\[\bigskipamount]
-        \def\simplecv@sep{}%
-        \forcsvlist{\simplecv@contact}{#2}%
-    \end{center}
+  \begin{center}
+    {\HUGE \textcolor{color-title}{#1}}\\[\bigskipamount]
+    \def\simplecv@sep{}%
+    \forcsvlist{\simplecv@contact}{#2}%
+  \end{center}
 }
 \newcommand{\simplecv@contact}[1]{%
-    \simplecv@sep #1%
-    \def\simplecv@sep{\hspace{10pt}\vrule\hspace{10pt}}%
+  \simplecv@sep #1%
+  \def\simplecv@sep{\hspace{10pt}\vrule\hspace{10pt}}%
 }
 \makeatother
 
 % Inline heading
 \newcommand{\headinginline}[2]{
-    \begin{minipage}[t]{0.60\textwidth}
+  \begin{minipage}[t]{0.60\textwidth}
     \vspace*{\fill}
     \HUGE \textcolor{color-title}{#1}
-    \end{minipage}
-    \begin{minipage}[t]{0.39\textwidth}
+  \end{minipage}
+  \begin{minipage}[t]{0.39\textwidth}
     \begin{flushright}
-    #2
+      #2
     \end{flushright}
-    \end{minipage}
+  \end{minipage}
 }
 
 % Photo heading
 \newcommand{\headingphoto}[3]{
-    \begin{minipage}[t]{0.60\textwidth}
+  \begin{minipage}[t]{0.60\textwidth}
     \begin{dummyenv}
-    \vspace*{\fill}
-    \HUGE \textcolor{color-title}{#1}
+      \vspace*{\fill}
+      \HUGE \textcolor{color-title}{#1}
     \end{dummyenv}
     \vspace{5mm}\\
     #2
-    \end{minipage}
-    \begin{minipage}[t]{0.39\textwidth}
+  \end{minipage}
+  \begin{minipage}[t]{0.39\textwidth}
     \begin{flushright}
-    \includegraphics[width=.5\linewidth,keepaspectratio,valign=t]{#3}
+      \includegraphics[width=.5\linewidth,keepaspectratio,valign=t]{#3}
     \end{flushright}
-    \end{minipage}
+  \end{minipage}
 }
 
 % Two-columns
 \newcommand{\sidebyside}[2]{
-    \begin{multicols}{2}
+  \begin{multicols}{2}
     #1 \columnbreak
-    #2 \end{multicols}
+    #2
+  \end{multicols}
 }
 
 % Section titles
 \titleformat{\section}{
-    \scshape\raggedright\Large\color{color-title}}{}{0em}{}
-    [\color{color-title}\titlerule\vspace{-\smallskipamount}]
+\scshape\raggedright\Large\color{color-title}}{}{0em}{}
+[\color{color-title}\titlerule\vspace{-\smallskipamount}]
 
 % Subsection titles
 \titleformat{\subsection}{%
-    % \scshape
-    \raggedright\large\color{color-title}}{}{0em}{}[\vspace{-\smallskipamount}]
+  % \scshape
+\raggedright\large\color{color-title}}{}{0em}{}[\vspace{-\smallskipamount}]
 
 % Match other CV sections (biblatex defaults to \section* plus marks)
-\defbibheading{bibliography}[\refname]{\section{#1}}
+\defbibheading{bibliography}[\refname]{
+\section{#1}}
 
 % Footer
 \fancyfoot[R]{Page \thepage \hspace{1pt} of \pageref{LastPage}}
 
 % Lists
 \newcommand{\outerlist}[1]{
-    \begin{itemize}[leftmargin=*] #1 \end{itemize}}
+  \begin{itemize}[leftmargin=*] #1
+\end{itemize}}
 \newcommand{\denseouterlist}[1]{
-    \begin{itemize}[leftmargin=*,itemsep=0pt] #1 \end{itemize}}
+  \begin{itemize}[leftmargin=*,itemsep=0pt] #1
+\end{itemize}}
 \newcommand{\innerlist}[1]{
-    \begin{itemize}[topsep=0pt] #1 \end{itemize}}
+  \begin{itemize}[topsep=0pt] #1
+\end{itemize}}
 \newcommand{\orderedouterlist}[1]{
-    \begin{enumerate}[leftmargin=*] #1 \end{enumerate}}
+  \begin{enumerate}[leftmargin=*] #1
+\end{enumerate}}
 \newcommand{\denseorderedouterlist}[1]{
-    \begin{enumerate}[leftmargin=*,itemsep=0pt] #1 \end{enumerate}}
+  \begin{enumerate}[leftmargin=*,itemsep=0pt] #1
+\end{enumerate}}
 
 % List items
-\newcommand{\entry}[1]{\item\small{#1}}  % bullet / body line
+\newcommand{\entry}[1]{
+\item\small{#1}}  % bullet / body line
 \newcommand{\entryextra}[1]{\textcolor{color-detail}{\entry{#1}}}  % muted secondary bullet
-\newcommand{\entrylabeled}[2][]{\item[#1]\small{#2}}  % bullet with a custom label
+\newcommand{\entrylabeled}[2][]{
+\item[#1]\small{#2}}  % bullet with a custom label
 
 \newcommand{\entrymid}[4][]{  % title + date, italic subtitle (teaching, volunteering)
-    \item[#1] \small{#2} \hfill \small{#3}
-    \vspace{-\smallskipamount} \item[]\small{\textit{#4}}}
+\item[#1] \small{#2} \hfill \small{#3}
+  \vspace{-\smallskipamount}
+\item[]\small{\textit{#4}}}
 
-\newcommand{\entrybig}[5][]{\item[#1]  % org + location, role + dates (jobs, education)
-    \begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
-    #2 & #3 \\ {\small#4} & {\small #5} \\ \end{tabular*}}
+\newcommand{\entrybig}[5][]{
+\item[#1]  % org + location, role + dates (jobs, education)
+  \begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
+    #2 & #3 \\ {\small#4} & {\small #5} \\
+\end{tabular*}}
 
 \newcommand{\entryrole}[2]{% extra role + dates under the same \entrybig (promotions)
-    \par\nobreak\vspace{-\parskip}\nointerlineskip
-    \begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
-    {\small#1} & {\small #2} \\ \end{tabular*}}
+  \par\nobreak\vspace{-\parskip}\nointerlineskip
+  \begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
+    {\small#1} & {\small #2} \\
+\end{tabular*}}
 
-\newcommand{\entrybigonecol}[3][]{\item[#1]  % two left-only rows (projects without location/dates)
-    \begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
-    #2 & \\ {\small#3} & \\ \end{tabular*}}
+\newcommand{\entrybigonecol}[3][]{
+\item[#1]  % two left-only rows (projects without location/dates)
+  \begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
+    #2 & \\ {\small#3} & \\
+\end{tabular*}}
 
 \makeatletter
 \newcommand{\entryrule}{% theme-colored divider, centered between two \entrybig items
-    % If we're inside a list (\@listdepth>0) emit an empty \item[] so the
-    % rule lines up with other items; otherwise just emit a standalone rule.
-    \ifnum\@listdepth>0
-        \item[]% empty list item to position the rule
-        \par\nobreak\nointerlineskip\vspace*{\smallskipamount}
-        \noindent\textcolor{color-title}{\rule{\linewidth}{0.1pt}}%
-        \par\nobreak\nointerlineskip\vspace*{\smallskipamount}
-    \else
-    \par\nobreak\nointerlineskip\vspace*{\smallskipamount}
-    \noindent\textcolor{color-title}{\rule{\linewidth}{0.1pt}}%
-        \par\nobreak\nointerlineskip\vspace*{\smallskipamount}
-    \fi}
+  % If we're inside a list (\@listdepth>0) emit an empty \item[] so the
+  % rule lines up with other items; otherwise just emit a standalone rule.
+  \ifnum\@listdepth>0
+\item[]% empty list item to position the rule
+  \par\nobreak\nointerlineskip\vspace*{\smallskipamount}
+  \noindent\textcolor{color-title}{\rule{\linewidth}{0.1pt}}%
+  \par\nobreak\nointerlineskip\vspace*{\smallskipamount}
+  \else
+  \par\nobreak\nointerlineskip\vspace*{\smallskipamount}
+  \noindent\textcolor{color-title}{\rule{\linewidth}{0.1pt}}%
+  \par\nobreak\nointerlineskip\vspace*{\smallskipamount}
+\fi}
 \makeatother
 
 % Fill year
@@ -189,7 +204,7 @@
 \newbibmacro*{name:bold}[2]{%
   \edef\blx@tmp@name{\expandonce#1, \expandonce#2}%
   \def\do##1{\ifdefstring{\blx@tmp@name}{##1}{\bfseries\listbreak}{}}%
-  \dolistloop{\boldnames}}
+\dolistloop{\boldnames}}
 \newcommand*{\boldnames}{}
 \makeatother
 
