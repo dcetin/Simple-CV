@@ -19,7 +19,9 @@
 
 \begin{document}
 
-% Heading - adding {} after icons forces whitespace insertion
+% Adding {} after icons to force whitespace insertion
+
+% Inline heading: name on the left, contact items on the right
 \headinginline{Doruk Çetin}{
     \faEnvelope{} \email{doruk.cetin.dc@gmail.com} \\
     \faGlobe{} \website{dcetin.me} 
@@ -28,6 +30,7 @@
     \faPhone{} +1 555-555-5555
 }
 
+% Photo heading: name on the left, contact items below the name, photo on the right
 % \headingphoto{Doruk Çetin}{
 %     Website: \website{dcetin.me} \\ 
 %     Email: \email{dcetin@ethz.ch} \\
@@ -35,6 +38,7 @@
 %     GitHub: \github{dcetin}
 % }{photo.png}
 
+% Simple heading: name above, contact items below, separated by vertical bars
 % \headingsimple{Doruk Çetin}{
 %     \faEnvelope: \email{doruk.cetin.dc@gmail.com},
 %     \faGlobe: \website{dcetin.me},
@@ -50,6 +54,7 @@
 \pagebreak
 
 % Page Two
+% Use \sidebyside to place two sections side by side
 \import{sections/}{teaching.tex}
 \sidebyside
     {\import{sections/}{skills.tex}}
